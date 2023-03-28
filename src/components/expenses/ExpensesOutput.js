@@ -3,13 +3,11 @@ import React from "react";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 
-import { DUMMY_DATA } from "../../data/dummy";
-
 const ExpensesOutput = ({ expenses, periodName }) => {
   return (
     <View style={styles.container}>
-      <ExpensesSummary expenses={DUMMY_DATA} periodName={periodName} />
-      <ExpensesList expenses={DUMMY_DATA} />
+      <ExpensesSummary expenses={expenses} periodName={periodName} />
+      <ExpensesList expenses={expenses} />
     </View>
   );
 };

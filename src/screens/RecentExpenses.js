@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import ExpensesOutput from "../components/expenses/ExpensesOutput";
+import { useSelector } from "react-redux";
 
 const RecentExpenses = () => {
-  return <ExpensesOutput periodName="Last 7 Days" />;
+  const expenses = useSelector((state) => state.expenses.expenses);
+  return <ExpensesOutput expenses={expenses} periodName="Last 7 Days" />;
 };
 
 export default RecentExpenses;
