@@ -4,7 +4,11 @@ import IconButton from "../components/ui/IconButton";
 import { colors } from "../constant/colors";
 import Button from "../components/ui/Button";
 import { useDispatch } from "react-redux";
-import { addExpense, removeExpense } from "../store/expensesSlice";
+import {
+  addExpense,
+  removeExpense,
+  updateExpense,
+} from "../store/expensesSlice";
 
 const ManageExpense = ({ route, navigation }) => {
   const dispatch = useDispatch();
@@ -26,14 +30,25 @@ const ManageExpense = ({ route, navigation }) => {
     navigation.goBack();
   }
   function addUpdateHandler() {
-    dispatch(
-      addExpense({
-        id: `${Math.random() * 1000}`,
-        description: "A pair of shoes",
-        amount: 59.99,
-        date: new Date(),
-      })
-    );
+    if (!isEditing) {
+      dispatch(
+        addExpense({
+          id: `${Math.random() * 1000}`,
+          description: "Add new expense",
+          amount: 59.99,
+          date: new Date("2022-05-19"),
+        })
+      );
+    } else {
+      dispatch(
+        updateExpense({
+          id: expenseId,
+          description: "Updated Expense",
+          amount: 59.99,
+          date: new Date(),
+        })
+      );
+    }
     navigation.goBack();
   }
   return (

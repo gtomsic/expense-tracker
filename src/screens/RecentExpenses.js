@@ -5,7 +5,13 @@ import { useSelector } from "react-redux";
 
 const RecentExpenses = () => {
   const expenses = useSelector((state) => state.expenses.expenses);
-  return <ExpensesOutput expenses={expenses} periodName="Last 7 Days" />;
+  return (
+    <ExpensesOutput
+      expenses={expenses}
+      periodName="Last 7 Days"
+      attention="No recent expenses"
+    />
+  );
 };
 
 export default RecentExpenses;

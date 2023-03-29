@@ -6,7 +6,13 @@ import { useSelector } from "react-redux";
 const AllExpenses = () => {
   const expenses = useSelector((state) => state.expenses.expenses);
   console.log(expenses);
-  return <ExpensesOutput periodName="Total" expenses={expenses} />;
+  return (
+    <ExpensesOutput
+      periodName="Total"
+      expenses={expenses}
+      attention="No Expenses"
+    />
+  );
 };
 
 export default AllExpenses;
